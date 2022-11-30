@@ -1,5 +1,5 @@
 # Copy this file to use as a starter for each day
-# mkdir day1 && cp ./day_example.rb ./day1/day1.rb
+# mkdir day_1 && cp ./day_example.rb ./day_1/day_1.rb
 
 require_relative '../classes/day_solver'
 

@@ -3,13 +3,13 @@ https://adventofcode.com/2022
 
 ## Adding a new day
 ```
-mkdir day1
-cp ./day_template.rb.example ./day1/day1.rb
+mkdir day_1
+cp ./day_example/day_template.rb ./day_1/day_1.rb
 ```
 
 ## Running a day
 ```
-ruby ./day1/day_1.rb
+ruby ./day_1/day_1.rb
 ```
 
 ## Ruby Version
