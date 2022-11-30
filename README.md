@@ -4,7 +4,7 @@ https://adventofcode.com/2022
 ## Adding a new day
 ```
 mkdir day_1
-cp ./day_example/day_template.rb ./day_1/day_1.rb
+cp ./day_example/day_example.rb ./day_1/day_1.rb
 ```
 
 ## Running a day
