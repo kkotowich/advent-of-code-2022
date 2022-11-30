@@ -1,3 +1,4 @@
+require 'net/http'
 require_relative './file'
 
 class API
