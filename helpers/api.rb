@@ -26,11 +26,8 @@ def getDailyInput()
   
   response = http.get("/#{@year}/day/#{@day}/input", { 'Cookie' => "session=#{EnvHelper.get('SESSION_ID')}" })
 
-  # TODO: this is broken. it incorrectly skips empty lines
-  data = response.body.split(" ")
+  data = response.body.split("\n")
   
-  puts response.body
-
   # write to file for faster retrieval
   FileHelper.writeDailyInput("/day_#{@day}/input.txt", data)
 

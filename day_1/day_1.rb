@@ -9,6 +9,8 @@ class Day1 < DaySolver
     data = @api.getDailyInput()
     
     data.map! do |calorie|
+      # dangerous becauase an empty string becomes 0.  
+      # This is acceptable in this solution because there are no real 0 values in the input
       calorie.to_i
     end
 
