@@ -1,4 +1,5 @@
 require 'net/http'
+require 'json'
 require_relative './file'
 
 class API
@@ -13,8 +14,8 @@ end
 
 public 
 def getDailyInput()
-  if (File.file?("#{@projectDirectory}/day#{@day}/input.txt"))
-    return FileHelper.getDailyInput("/day#{@day}/input.txt")
+  if (File.file?("#{@projectDirectory}/day_#{@day}/input.txt"))
+    return FileHelper.getDailyInput("/day_#{@day}/input.txt")
   end
 
   uri = URI(@baseUrl)
@@ -26,11 +27,13 @@ def getDailyInput()
   data = response.body.split(" ")
 
   # write to file for faster retrieval
-  FileHelper.writeDailyInput("/day#{@day}/input.txt", data)
+  FileHelper.writeDailyInput("/day_#{@day}/input.txt", data)
 
   return data
 end
 
+# this doesn't work.  Need to figure out how imitate submitting a form
+# POST, cookie in header, data in body
 def submitAnswer(level, answer)
   uri = URI(@baseUrl)
   http = Net::HTTP.new(uri.host, uri.port)

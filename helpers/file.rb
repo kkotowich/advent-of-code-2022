@@ -8,13 +8,13 @@ class FileHelper
   
     File.foreach("#{@@projectDirectory}/#{filename}") do |line| 
       data.push(line)
-    end
+    end 
   
     return data
   end
   
   def self.writeDailyInput(filename, data)
-    File.open("#{@@projectDirectory}/#{filename}", "w+") do |f|
+    File.open("#{@@projectDirectory}#{filename}", "w+") do |f|
       f.puts(data)
     end
   end
