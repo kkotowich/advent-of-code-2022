@@ -1,16 +1,6 @@
 require_relative '../classes/day_solver'
 
-
-
-
-
 class Weapon
-  WIN = 6
-  DRAW = 3
-  LOSE = 0
-
-
-
   attr_accessor :name
 
   def initialize (name, self_points, beats, beaten_by)
@@ -153,28 +143,14 @@ class Day2 < DaySolver
   # Create a weapon for the desired outcome based on enemy weapon
   def sneakilyCreateWeapon(enemy, desired_outcome) 
     if desired_outcome == 'X'
-      # LOSE
+      # Player wants to LOSE
       return enemy.createEnemyLoser()
     elsif desired_outcome == 'Y'
-      # DRAW
+      # Player wants to DRAW
       return enemy.createEnemyEqual()
     elsif desired_outcome == 'Z'
-      # WIN
+      # Player wants to WIN
       return enemy.createEnemyWinner()
-    end
-
-    if enemy_name == 'rock'
-      
-      return Rock.new()
-
-    elsif enemy_name == 'paper'
-
-      return Paper.new()
-
-    elsif enemy_name == 'scissors'
-      
-      return Scissors.new()
-
     end
   end
 end
