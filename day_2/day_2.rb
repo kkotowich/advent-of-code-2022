@@ -1,6 +1,11 @@
 require_relative '../classes/day_solver'
 
 class Weapon
+
+  WIN = 6
+  DRAW = 3
+  LOSE = 0
+  
   attr_accessor :name
 
   def initialize (name, self_points, beats, beaten_by)
@@ -11,7 +16,7 @@ class Weapon
   end
 
   def battle(enemy_name)
-    battle_points = 0
+    battle_points = LOSE
 
     if enemy_name == @name
       battle_points = DRAW
