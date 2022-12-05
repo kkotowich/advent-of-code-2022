@@ -36,19 +36,43 @@ class Day3 < DaySolver
         end
       end
 
-      priority_sum += @priority_map[:"#{char}"]
+      priority_sum += @priority_map[:"#{shared_item}"]
 
     end
     
     return priority_sum
   end
 
-  def solve_2 (data)
+  def solve_2 (rucksacks)
+    priority_sum = 0
 
-    data.each do |round|
+    for index in (0...rucksacks.length/3)
+      nextSetIndex = index * 3 # not elegant... but it works
+
+      rucksackSet = [rucksacks[nextSetIndex], rucksacks[nextSetIndex+1], rucksacks[nextSetIndex+2]]
+
+      badgeSymbol = reduce_similar(reduce_similar(rucksackSet[0],rucksackSet[1]), rucksackSet[2])[0]
+  
+      priority_sum += @priority_map[:"#{badgeSymbol}"]
     end
-    
-    return 0
+
+    return priority_sum
+  end
+
+  # returns an array of items that exist in both arrays
+  # this is inefficient and will return duplicates, but thats okay for this solution
+  # reduce_similar(reduce_similar(['a','a','c'],['a','a','e'],),['a','a','g'],) => ['a','a','a','a','a','a','a','a']
+  def reduce_similar(a1, a2) 
+    duplicates = []
+    a1.each do |a1_item|
+      a2.each do |a2_item|
+        if a1_item == a2_item
+          duplicates.push(a1_item)
+        end
+      end
+    end
+
+    return duplicates
   end
  
   # a-z => 1-26, A-Z => 27-52
