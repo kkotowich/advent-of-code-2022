@@ -84,8 +84,6 @@ class Day4 < DaySolver
     pairs.each do |pair|
       if (pair.first.has_any_overlaps?(pair.second))
         overlapCount += 1
-      else
-        puts "#{pair.first.start}-#{pair.first.end},#{pair.second.start}-#{pair.second.end}"
       end
     end
 
